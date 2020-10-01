@@ -18,8 +18,7 @@ node(){
       cloudFoundryCreateSpace script: this, cfSpace: consumerTestCfSpaceName
       cloudFoundryDeploy script:this,
                          deployTool: 'mtaDeployPlugin',
-                         cloudFoundry:[ space: consumerTestCfSpaceName]
+                         cfSpace: consumerTestCfSpaceName
       cloudFoundryDeleteSpace script: this, cfSpace: consumerTestCfSpaceName
   }
 }
-
