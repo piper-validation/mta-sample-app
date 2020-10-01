@@ -13,13 +13,13 @@ node(){
 
   stage('Deploy')   {
       def id = new Date().getTime()
-      consumerTestsSpace = "consr-test-${id}"
+      consumerTestCfSpaceName = "val-it-${id}"
 
-      cloudFoundryCreateSpace script: this, cfSpace: consumerTestsSpace
+      cloudFoundryCreateSpace script: this, cfSpace: consumerTestCfSpaceName
       cloudFoundryDeploy script:this,
                          deployTool: 'mtaDeployPlugin',
-                         cloudFoundry:[ space: consumerTestsSpace]
-      cloudFoundryDeleteSpace script: this, cfSpace: consumerTestsSpace
+                         cloudFoundry:[ space: consumerTestCfSpaceName]
+      cloudFoundryDeleteSpace script: this, cfSpace: consumerTestCfSpaceName
   }
 }
 
